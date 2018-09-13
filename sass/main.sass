@@ -15,6 +15,7 @@ nav.navigation
   width: 100%
   background-color: #fff
   box-shadow: 0 3px 6px rgba(0,0,0,0.16)
+
   i.navigation--burger
     color: rgba(0,0,0,0.54)
     font-size: 32px
@@ -24,9 +25,40 @@ nav.navigation
     line-height: 90px
     cursor: pointer
     transition: 0.3s
+
     &:hover 
       color: rgba(0,0,0,0.87)
-      
+  
+  .navBox
+    position: absolute
+    top: 90px
+    left: 0
+    width: 300px
+    height: calc(100vh - 90px)
+    background-color: #fff
+    box-shadow: 3px 6px 6px rgba(0,0,0,0.16)
+
+    &--link
+      color: rgba(0,0,0,0.54)
+      font-family: 'Roboto', sans-serif
+      font-weight: 500
+      text-decoration: none
+      text-transform: uppercase
+      display: block
+      width: 100%
+      padding: 24px
+      line-height: 20px
+      text-align: center
+      background-color: #fff
+      border-bottom: 1px #ccc solid
+      transition: 0.3s
+
+      &:first-of-type
+        border-top: 1px #ccc solid
+
+      &:hover
+        background-color: darken(#fff, 5%)
+
 
 section.container
   width: 100%

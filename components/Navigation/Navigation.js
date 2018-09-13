@@ -9,11 +9,23 @@ export default class extends Component {
           menu
         </i>
       
+        <div className="navBox">
+          <Link href="">
+            <a className="navBox--link">Link</a>
+          </Link>
 
+          <Link href="">
+            <a className="navBox--link">Link</a>
+          </Link>
 
-        <Link href="">
-          <a>Link</a>
-        </Link>
+          <Link href="">
+            <a className="navBox--link">Link</a>
+          </Link>
+
+          <Link href="">
+            <a className="navBox--link">Link</a>
+          </Link>
+        </div>
       </nav>
     )
   }
