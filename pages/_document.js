@@ -6,9 +6,10 @@ export default class MyDocument extends Document {
     return (
       <html lang="en">
         <Head>
-          <meta charSet="UTF-8"></meta>
-          <meta httpEquiv="X-UA-Compatible" content="ie=edge"></meta>
+          <meta charSet="UTF-8" />
+          <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
           <title>DataZoo</title>
+          <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
           <link rel="stylesheet" href="/_next/static/style.css" />
         </Head>
         <body>

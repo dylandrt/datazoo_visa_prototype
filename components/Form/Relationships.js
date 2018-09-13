@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import TextFieldGroup from '../Commons/TextFieldGroup'
 import Link from 'next/link'
-import Header from '../Header/Header'
+import Heading from '../Heading/Heading'
 
 export default class Relationships extends Component {
   constructor(props) {
@@ -27,7 +27,7 @@ export default class Relationships extends Component {
   render() {
     return (
       <div className="form-page form-page-five">
-        <Header title="Relationships" />
+        <Heading title="Relationships" />
         
         <h3 className="form-subheading">
           Provide details of your parents, partner/spouse and children (even if

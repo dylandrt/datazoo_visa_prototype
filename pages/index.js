@@ -1,10 +1,12 @@
  import React, { Component } from 'react'
+ import Navigation from '../components/Navigation/Navigation'
  
 export default class extends Component {
   render() {
     return (
-      <section className="container">
-      </section>
+      <main>
+        <Navigation />
+      </main>
     )
   }
 }

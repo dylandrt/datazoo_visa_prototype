@@ -1,11 +1,11 @@
 import React from 'react';
-import Header from '../components/Header/Header';
+import Heading from '../components/Heading/Heading';
 
 export default () => {
   return (
     <section className="container">
       <div className="form-page">
-        <Header title="Success" />
+        <Heading title="Success" />
       </div>
     </section>
   );

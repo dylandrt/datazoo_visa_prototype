@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import TextFieldGroup from '../Commons/TextFieldGroup'
 import Link from 'next/link'
-import Header from '../Header/Header'
+import Heading from '../Heading/Heading'
 
 export default class WorkAndEducation extends Component {
   constructor(props) {
@@ -36,7 +36,7 @@ export default class WorkAndEducation extends Component {
   render() {
     return (
       <div className="form-page form-page-three">
-        <Header title="Work & Tertiary Education" />
+        <Heading title="Work & Tertiary Education" />
   
         <TextFieldGroup
           label="Occupation/job title"

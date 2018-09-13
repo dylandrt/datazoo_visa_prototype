@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import TextFieldGroup from '../Commons/TextFieldGroup'
 import Link from 'next/link'
-import Header from '../Header/Header'
+import Heading from '../Heading/Heading'
 
 export default class MilitaryHistory extends Component {
   constructor(props) {
@@ -29,7 +29,7 @@ export default class MilitaryHistory extends Component {
   render() {
     return (
       <div className="form-page form-page-four">
-        <Header title="Military History" />
+        <Heading title="Military History" />
   
         <TextFieldGroup
           label="Rank"
