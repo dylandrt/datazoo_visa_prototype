@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i')
+
+*, *::before, *::after
+  margin: 0
+  padding: 0
+  box-sizing: border-box
+
+body
+  background: #fafafa
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+
+section.container
+  width: 100%
+  max-width: 700px
+  margin: 0 auto
+  font-family: 'Roboto', sans-serif
+  
+.form-page
+  position: relative
+  background-color: #fff
+  margin: 16px
+  padding: 24px
+  padding-bottom: 74px
+  border-radius: 10px
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16)
+  
+  &-one, &-two, &-three, &-four, &-five, &-six, &-seven
+    input[type='checkbox'].toggle
+      display: none
+      margin: 0
+
+    .collapsible-content
+      margin: 0
+      max-height: 0px
+      overflow: hidden
+      transition: max-height .25s ease-in-out
+
+    .toggle:checked + .lbl-toggle + .collapsible-content 
+      max-height: 10000px
+      margin: 0
+      
+    
+  .expand
+    font-size: 36px
+    position: absolute
+    top: 20px
+    right: 24px
+    cursor: pointer
+    &:before
+      content: 'expand_more'
+  
+  input, button, textarea, select, a
+    outline: none
+    
+  a.continue
+    border-radius: 3px
+    border: none
+    background-color: #77c159
+    color: #fff
+    font-family: 'Roboto', sans-serif
+    font-size: 16px
+    font-weight: 500
+    line-height: 50px
+    text-align: center
+    text-decoration: none
+    text-transform: uppercase
+    width: 120px
+    height: 50px
+    position: absolute
+    right: 24px
+    cursor: pointer
+    
+    &:hover
+      background-color: lighten(#77c159, 10%)
+      transition: 0.3s
+    
+    
+  a.previous
+    border-radius: 3px
+    border: none
+    background-color: #484dad
+    color: #fff
+    font-family: 'Roboto', sans-serif
+    font-size: 16px
+    font-weight: 500
+    line-height: 50px
+    text-align: center
+    text-decoration: none
+    text-transform: uppercase
+    width: 120px
+    height: 50px
+    position: absolute
+    left: 24px
+    cursor: pointer
+    transition: 0.3s
+    
+    &:hover
+      background-color: lighten(#484dad, 10%)
+      transition: 0.3s
+    
+    
+    
+  .form-heading
+    color: rgba(0,0,0,0.87)
+    font-size: 24px
+    font-weight: 400
+    
+  .form-subheading
+    color: rgba(0,0,0,0.54)
+    font-size: 16px
+    font-style: italic
+    font-weight: 50
+    margin: 24px 0
+    
+  .form-field
+    margin: 24px 0
+    
+    label
+      display: block
+      color: rgba(0,0,0,0.87)
+      font-weight: 500
+      
+    input[type='text'], input[type='email']
+      font-size: 16px
+      border-radius: 10px
+      border: 1px solid #484dad
+      width: 100%
+      padding: 12px 20px
+      margin: 8px 0
+      box-sizing: border-box
+      transition: 0.3s
+      color: rgba(0,0,0,0.54)
+      font-family: 'Roboto', sans-serif
+      
+      &:disabled
+        border: 1px solid #ccc
+        background-color: #f0f0f0
+      
+      &:focus
+        color: rgba(0,0,0,0.87)
+        border: 1px solid #77c159
+        transition: 0.3s
+      
+    label.radio
+      display: block
+      position: relative
+      padding-left: 35px
+      margin: 12px 0
+      cursor: pointer
+      -webkit-user-select: none
+      -moz-user-select: none
+      -ms-user-select: none
+      user-select: none
+      transition: 0.3s
+      
+      &:hover input[type=radio] ~ .checkmark 
+        background-color: #ccc
+        transition: 0.3s
+        
+      & input[type=radio]:checked ~ .checkmark
+        background-color: #77c159
+        
+      & input[type=radio]:checked ~ .checkmark:after
+        display: block
+        
+      input[type=radio]
+        position: absolute
+        opacity: 0
+        cursor: pointer
+        
+      .checkmark 
+        position: absolute
+        top: 0
+        left: 0
+        height: 20px
+        width: 20px
+        background-color: #eee
+        border-radius: 50%
+        
+        :after
+          content: ""
+          position: absolute
+          display: none
+   
