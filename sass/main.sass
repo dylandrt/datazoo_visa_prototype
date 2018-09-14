@@ -11,6 +11,7 @@ body
   -moz-osx-font-smoothing: grayscale
 
 nav.navigation
+  position: relative
   height: 90px
   width: 100%
   background-color: #fff
@@ -28,36 +29,48 @@ nav.navigation
 
     &:hover 
       color: rgba(0,0,0,0.87)
+
+    &:active
+      color: #fff
   
+  img.navigation--logo
+    position: absolute
+    width: 150px
+    left: 50%
+    top: 50%
+    transform: translate(-50%, -50%)
+
   .navBox
     position: absolute
     top: 90px
-    left: 0
     width: 300px
     height: calc(100vh - 90px)
     background-color: #fff
-    box-shadow: 3px 6px 6px rgba(0,0,0,0.16)
+    transition: 0.2s
+    
+    &__open
+      left: 0
+      transition: 0.2s
+
+    &__closed
+      left: -100%
+      transition: 0.2s
 
     &--link
       color: rgba(0,0,0,0.54)
       font-family: 'Roboto', sans-serif
-      font-weight: 500
+      font-size: 14px
+      font-weight: 400
       text-decoration: none
-      text-transform: uppercase
       display: block
       width: 100%
-      padding: 24px
-      line-height: 20px
-      text-align: center
+      padding: 16px 40px
+      line-height: 24px
       background-color: #fff
-      border-bottom: 1px #ccc solid
       transition: 0.3s
 
-      &:first-of-type
-        border-top: 1px #ccc solid
-
       &:hover
-        background-color: darken(#fff, 5%)
+        background-color: darken(#fff, 10%)
 
 
 section.container
@@ -65,7 +78,44 @@ section.container
   max-width: 700px
   margin: 0 auto
   font-family: 'Roboto', sans-serif
-  
+
+.user-login
+  position: relative
+  background-color: #fff
+  margin: 16px
+  padding: 24px
+  border-radius: 10px
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16)
+
+.heading
+  color: rgba(0,0,0,0.87)
+  font-size: 24px
+  font-weight: 400
+
+a.button
+  display: block
+  border-radius: 3px
+  border: none
+  background-color: #77c159
+  color: #fff
+  font-family: 'Roboto', sans-serif
+  font-size: 16px
+  font-weight: 500
+  line-height: 50px
+  text-align: center
+  text-decoration: none
+  text-transform: uppercase
+  width: 120px
+  height: 50px
+  cursor: pointer
+    
+  &:hover
+    background-color: lighten(#77c159, 10%)
+    transition: 0.3s
+
+  &__left
+    float: right
+
 .form-page
   position: relative
   background-color: #fff
@@ -149,13 +199,6 @@ section.container
       background-color: lighten(#484dad, 10%)
       transition: 0.3s
     
-    
-    
-  .form-heading
-    color: rgba(0,0,0,0.87)
-    font-size: 24px
-    font-weight: 400
-    
   .form-subheading
     color: rgba(0,0,0,0.54)
     font-size: 16px
@@ -233,3 +276,9 @@ section.container
           position: absolute
           display: none
    
+@keyframes fadeIn
+  0%
+    opacity: 0
+
+  100%
+    opacity: 1
