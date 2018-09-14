@@ -29,7 +29,7 @@ export default class Relationships extends Component {
       <div className="form-page form-page-five">
         <Heading title="Relationships" />
         
-        <h3 className="form-subheading">
+        <h3 className="subheading">
           Provide details of your parents, partner/spouse and children (even if
           they're not travelling with you
         </h3>

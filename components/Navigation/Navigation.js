@@ -9,11 +9,6 @@ export default class extends Component {
 
     this.handleNavClick = this.handleNavClick.bind(this)
   }
-
-  componentDidMount() {
-    
-  }
-
   handleNavClick() {
     this.setState(state => ({
       isToggleOn: !state.isToggleOn
@@ -30,8 +25,8 @@ export default class extends Component {
         <Logo />
 
         <div className={this.state.isToggleOn ? 'navBox navBox__open' : 'navBox navBox__closed'}>
-          <Link href="">
-            <a className="navBox--link">Link</a>
+          <Link href="/">
+            <a className="navBox--link" onClick={this.handleNavClick}>Home</a>
           </Link>
 
           <Link href="">

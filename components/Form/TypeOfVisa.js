@@ -169,7 +169,7 @@ export default class WorkAndEducation extends Component {
         />
 
         <div className="visa-business">
-          <h3 className="form-subheading">
+          <h3 className="subheading">
             If visiting New Zealand for business purposes/a conference, please
             provide the following details
           </h3>
@@ -214,7 +214,7 @@ export default class WorkAndEducation extends Component {
         </div>
 
         <div className="visa-work">
-          <h3 className="form-subheading">
+          <h3 className="subheading">
             If coming to work in New Zealand, please provide the following
             details
           </h3>
@@ -257,7 +257,7 @@ export default class WorkAndEducation extends Component {
         </div>
 
         <div className="visa-study">
-          <h3 className="form-subheading">
+          <h3 className="subheading">
             If coming to New Zealand for study, please provide the following
             details
           </h3>
