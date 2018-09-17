@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react'
+import axios from 'axios'
 import TextFieldGroup from '../Commons/TextFieldGroup'
 import Link from 'next/link'
 import Heading from '../Heading/Heading'
@@ -14,8 +15,8 @@ export default class MilitaryHistory extends Component {
       militaryDateEnd: ''
     }
 
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   handleChange(e) {
@@ -23,7 +24,28 @@ export default class MilitaryHistory extends Component {
   }
 
   handleSubmit(e) {
-    console.log('submitted: ' + JSON.stringify(this.state));
+    const data = [
+      {
+        militaryRank: this.state.militaryRank,
+        militaryUnit: this.state.militaryUnit,
+        militaryService: this.state.militaryService,
+        militaryDateStart: this.state.militaryDateStart,
+        militaryDateEnd: this.state.militaryDateEnd
+      }
+    ]
+    
+    const step = '4'
+    const id = this.props.id
+    
+    axios.post(url, {
+      step, id, data
+    })
+    .then(res => {
+      console.log(res.data)
+    })
+    .catch(err => {
+      console.log(err)
+    })
   }
 
   render() {
