@@ -11,7 +11,9 @@ body
   -moz-osx-font-smoothing: grayscale
 
 nav.navigation
-  position: relative
+  z-index: 1
+  top: 0
+  position: fixed
   height: 90px
   width: 100%
   background-color: #fff
@@ -41,6 +43,7 @@ nav.navigation
     transform: translate(-50%, -50%)
 
   .navBox
+    z-index: 2
     position: absolute
     top: 90px
     width: 300px
@@ -77,6 +80,7 @@ section.container
   width: 100%
   max-width: 700px
   margin: 0 auto
+  margin-top: 106px
   font-family: 'Roboto', sans-serif
 
 .user-login
@@ -91,6 +95,19 @@ section.container
   color: rgba(0,0,0,0.87)
   font-size: 24px
   font-weight: 400
+
+.subheading
+  color: rgba(0,0,0,0.54)
+  font-size: 16px
+  font-style: italic
+  font-weight: 50
+  margin: 24px 0
+
+.separator
+  width: 100%
+  margin: 24px 0
+  border: .5px #ccc solid
+
 
 a.button
   display: block
@@ -113,17 +130,22 @@ a.button
     background-color: lighten(#77c159, 10%)
     transition: 0.3s
 
-  &__left
-    float: right
+  &__right
+    margin-left: auto
+    
 
 .form-page
   position: relative
   background-color: #fff
   margin: 16px
   padding: 24px
-  padding-bottom: 74px
   border-radius: 10px
   box-shadow: 0 3px 6px rgba(0,0,0,0.16)
+
+  &::after 
+    content: ""
+    clear: both
+    display: table
   
   &-one, &-two, &-three, &-four, &-five, &-six, &-seven
     input[type='checkbox'].toggle
@@ -152,6 +174,9 @@ a.button
   
   input, button, textarea, select, a
     outline: none
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
     
   a.continue
     border-radius: 3px
@@ -167,8 +192,7 @@ a.button
     text-transform: uppercase
     width: 120px
     height: 50px
-    position: absolute
-    right: 24px
+    float: right
     cursor: pointer
     
     &:hover
@@ -190,21 +214,13 @@ a.button
     text-transform: uppercase
     width: 120px
     height: 50px
-    position: absolute
-    left: 24px
+    float: left
     cursor: pointer
     transition: 0.3s
     
     &:hover
       background-color: lighten(#484dad, 10%)
       transition: 0.3s
-    
-  .form-subheading
-    color: rgba(0,0,0,0.54)
-    font-size: 16px
-    font-style: italic
-    font-weight: 50
-    margin: 24px 0
     
   .form-field
     margin: 24px 0
