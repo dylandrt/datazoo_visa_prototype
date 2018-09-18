@@ -4,30 +4,25 @@ import { PageTransition } from 'next-page-transitions'
 import Navigation from '../components/Navigation/Navigation' 
  
 export default class MyApp extends App {
-  // constructor(props) {
-  //   super(props)
-  //   this.state = {
-  //     id: ''
+  
+  // static async getInitialProps({ Component, router, ctx }) {
+  //   let pageProps = {}
+ 
+  //   if (Component.getInitialProps) {
+  //     pageProps = await Component.getInitialProps(ctx)
   //   }
+
+  //   return { pageProps }
   // }
 
-  static async getInitialProps({ Component, router, ctx }) {
-    let pageProps = {}
- 
-    if (Component.getInitialProps) {
-      pageProps = await Component.getInitialProps(ctx)
-    }
- 
-    return { pageProps }
-  }
- 
+
   render() {
     const { Component, pageProps } = this.props
     return (
       <Container>
         <Navigation />
         <PageTransition timeout={300} classNames="page-transition">
-          <Component {...pageProps} />
+          <Component />
         </PageTransition>
         <style jsx global>{`
           .page-transition-enter {

@@ -1,38 +1,75 @@
-import React, { Component, Fragment } from 'react'
-import TextFieldGroup from '../Commons/TextFieldGroup'
 import Link from 'next/link'
-import Heading from '../Heading/Heading'
+import React, { Component } from 'react'
+import axios from 'axios'
+import Heading from '../components/Heading/Heading'
+import TextFieldGroup from '../components/Commons/TextFieldGroup'
 
 export default class WorkAndEducation extends Component {
-  constructor(props) {
-    super(props)
+  constructor() {
+    super()
     this.state = {
-      occupation: '',
-      companyName: '',
-      companyBuildingName: '',
-      companyStreetNo: '',
-      companyStreetName: '',
-      companyDistrict: '',
-      companyProvince: '',
-      companyTelephone: '',
-      companyEmail: '',
-      attendanceDateStart: '',
-      attendanceDateEnd: '',
-      institutionName: '',
-      studyProgramme: ''
+      id: '',
+      step: '3',
+      data: {
+        occupation: '',
+        companyName: '',
+        companyBuildingName: '',
+        companyStreetNo: '',
+        companyStreetName: '',
+        companyDistrict: '',
+        companyProvince: '',
+        companyTelephone: '',
+        companyEmail: '',
+        attendanceDateStart: '',
+        attendanceDateEnd: '',
+        institutionName: '',
+        studyProgramme: ''
+      }
     }
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  getUserInfo() {
+    axios.get(`http://localhost:8080/applicants/${localStorage.id}`)
+    .then(res => {
+      if (res.data.person.workAndEducation) {
+        this.setState({data: res.data.person.workAndEducation})
+      } else {
+        console.log('user has no data')
+      }
+    })
+    .catch(err => {
+      console.log(err)
+    })
+  }
+  
+  componentDidMount() {
+    this.getUserInfo()
+  }
+
   handleChange(e) {
-    this.setState({ [e.target.name]: e.target.value })
+    console.log({ data: { ...this.state.data, [e.target.name]: e.target.value }})
+    this.setState({ data: { ...this.state.data, [e.target.name]: e.target.value }})
   }
 
   handleSubmit(e) {
-    console.log('submitted: ' + JSON.stringify(this.state));
+    const id = String(localStorage.id)
+    const step = this.state.step
+    const data = this.state.data
+
+    axios.post(`http://localhost:8080/applicants/`, {
+      id, step, data
+    })
+    .then(res => {
+      console.log(res.data)
+    })
+    .catch(err => {
+      console.log(err)
+    })
   }
+
   render() {
     return (
       <div className="form-page form-page-three">
@@ -43,7 +80,7 @@ export default class WorkAndEducation extends Component {
           htmlFOR="occupation"
           name="occupation"
           id="occupation"
-          value={this.state.occupation}
+          value={this.state.data.occupation}
           handleChange={this.handleChange}
         />
 
@@ -52,7 +89,7 @@ export default class WorkAndEducation extends Component {
           htmlFOR="companyName"
           name="companyName"
           id="companyName"
-          value={this.state.companyName}
+          value={this.state.data.companyName}
           handleChange={this.handleChange}
         />
 
@@ -61,7 +98,7 @@ export default class WorkAndEducation extends Component {
           htmlFOR="companyBuildingName"
           name="companyBuildingName"
           id="companyBuildingName"
-          value={this.state.companyBuildingName}
+          value={this.state.data.companyBuildingName}
           handleChange={this.handleChange}
         />
 
@@ -70,7 +107,7 @@ export default class WorkAndEducation extends Component {
           htmlFOR="companyStreetNo"
           name="companyStreetNo"
           id="companyStreetNo"
-          value={this.state.companyStreetNo}
+          value={this.state.data.companyStreetNo}
           handleChange={this.handleChange}
         />
 
@@ -79,7 +116,7 @@ export default class WorkAndEducation extends Component {
           htmlFOR="companyStreetName"
           name="companyStreetName"
           id="companyStreetName"
-          value={this.state.companyStreetName}
+          value={this.state.data.companyStreetName}
           handleChange={this.handleChange}
         />
 
@@ -88,7 +125,7 @@ export default class WorkAndEducation extends Component {
           htmlFOR="companyDistrict"
           name="companyDistrict"
           id="companyDistrict"
-          value={this.state.companyDistrict}
+          value={this.state.data.companyDistrict}
           handleChange={this.handleChange}
         />
 
@@ -97,7 +134,7 @@ export default class WorkAndEducation extends Component {
           htmlFOR="companyProvince"
           name="companyProvince"
           id="companyProvince"
-          value={this.state.companyProvince}
+          value={this.state.data.companyProvince}
           handleChange={this.handleChange}
         />
 
@@ -106,7 +143,7 @@ export default class WorkAndEducation extends Component {
           htmlFOR="companyProvince"
           name="companyProvince"
           id="companyProvince"
-          value={this.state.companyProvince}
+          value={this.state.data.companyProvince}
           handleChange={this.handleChange}
         />
 
@@ -115,7 +152,7 @@ export default class WorkAndEducation extends Component {
           htmlFOR="companyTelephone"
           name="companyTelephone"
           id="companyTelephone"
-          value={this.state.companyTelephone}
+          value={this.state.data.companyTelephone}
           handleChange={this.handleChange}
         />
 
@@ -124,7 +161,7 @@ export default class WorkAndEducation extends Component {
           htmlFOR="companyEmail"
           name="companyEmail"
           id="companyEmail"
-          value={this.state.companyEmail}
+          value={this.state.data.companyEmail}
           handleChange={this.handleChange}
         />
 
@@ -133,7 +170,7 @@ export default class WorkAndEducation extends Component {
           htmlFOR="institutionName"
           name="institutionName"
           id="institutionName"
-          value={this.state.institutionName}
+          value={this.state.data.institutionName}
           handleChange={this.handleChange}
         />
 
@@ -142,7 +179,7 @@ export default class WorkAndEducation extends Component {
           htmlFOR="studyProgramme"
           name="studyProgramme"
           id="studyProgramme"
-          value={this.state.studyProgramme}
+          value={this.state.data.studyProgramme}
           handleChange={this.handleChange}
         />
 
@@ -151,7 +188,7 @@ export default class WorkAndEducation extends Component {
           htmlFOR="attendanceDateStart"
           name="attendanceDateStart"
           id="attendanceDateStart"
-          value={this.state.attendanceDateStart}
+          value={this.state.data.attendanceDateStart}
           handleChange={this.handleChange}
         />
 
@@ -160,7 +197,7 @@ export default class WorkAndEducation extends Component {
           htmlFOR="attendanceDateEnd"
           name="attendanceDateEnd"
           id="attendanceDateEnd"
-          value={this.state.attendanceDateEnd}
+          value={this.state.data.attendanceDateEnd}
           handleChange={this.handleChange}
         />
 

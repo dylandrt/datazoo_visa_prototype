@@ -5,10 +5,10 @@ import Heading from '../components/Heading/Heading'
 import TextFieldGroup from '../components/Commons/TextFieldGroup'
 
 export default class PersonalInfo extends Component {
-  constructor(props) {
-    super(props)
+  constructor() {
+    super()
     this.state = {
-      id: '313233313233313233313233',
+      id: '',
       step: '1',
       data: {
         familyName: '',
@@ -33,13 +33,13 @@ export default class PersonalInfo extends Component {
   }
 
   getUserInfo() {
-    axios.get(`http://172.17.160.49:3000/applicants/${this.state.id}`)
+    axios.get(`http://localhost:8080/applicants/${localStorage.id}`)
     .then(res => {
-      // const persons = res.data.applicants
-      // this.setState({ persons })
-      this.setState({data: res.data.person.personalInfo})
-      
-      console.log(res.data.person.personalInfo)
+      if (res.data.person.personalInfo) {
+        this.setState({data: res.data.person.personalInfo})
+      } else {
+        console.log('user has no data')
+      }
     })
     .catch(err => {
       console.log(err)
@@ -51,19 +51,16 @@ export default class PersonalInfo extends Component {
   }
 
   handleChange(e) {
-    console.log({ data: { ...this.state.data, [e.target.name]: e.target.value }})
+    // console.log({ data: { ...this.state.data, [e.target.name]: e.target.value }})
     this.setState({ data: { ...this.state.data, [e.target.name]: e.target.value }})
   }
 
   handleSubmit(e) {
-    // console.log('submitted: ' + JSON.stringify(this.state))
-    // e.preventDefault()
-
-    const id = this.state.id
+    const id = String(localStorage.id)
     const step = this.state.step
     const data = this.state.data
-    
-    axios.post(`http://172.17.160.49:3000/applicants/`, {
+
+    axios.post(`http://localhost:8080/applicants/`, {
       id, step, data
     })
     .then(res => {
@@ -98,14 +95,17 @@ export default class PersonalInfo extends Component {
             handleChange={this.handleChange}
           />
 
-          <TextFieldGroup
-            name="dateOfBirth"
-            label="Date of birth"
-            id="dateOfBirth"
-            htmlFOR="dateOfBirth"
-            value={this.state.data.dateOfBirth}
-            handleChange={this.handleChange}
-          />
+          <div className="form-field">
+            <label htmlFor="dateOfBirth">Start</label>
+            <input
+              type="date"
+              id="dateOfBirth"
+              min="1900-01-01" max="2018-12-31"
+              name="dateOfBirth"
+              value={this.state.data.dateOfBirth}
+              onChange={this.handleChange}
+            />
+          </div>
 
           <div className="form-field">
             <label htmlFor="gender">Gender</label>
@@ -208,23 +208,29 @@ export default class PersonalInfo extends Component {
             handleChange={this.handleChange}
           />
 
-          <TextFieldGroup
-            label="Date of issue"
-            htmlFOR="dateOfIssue"
-            name="dateOfIssue"
-            id="dateOfIssue"
-            value={this.state.data.dateOfIssue}
-            handleChange={this.handleChange}
-          />
+          <div className="form-field">
+            <label htmlFor="dateOfIssue">Date of Issue</label>
+            <input
+              type="date"
+              id="dateOfIssue"
+              min="1900-01-01" max="2018-12-31"
+              name="dateOfIssue"
+              value={this.state.data.dateOfIssue}
+              onChange={this.handleChange}
+            />
+          </div>
 
-          <TextFieldGroup
-            label="Date of expiry"
-            htmlFOR="dateOfExpiry"
-            name="dateOfExpiry"
-            id="dateOfExpiry"
-            value={this.state.data.dateOfExpiry}
-            handleChange={this.handleChange}
-          />
+          <div className="form-field">
+            <label htmlFor="dateOfExpiry">Date of Expiry</label>
+            <input
+              type="date"
+              id="dateOfExpiry"
+              min="1900-01-01" max="2018-12-31"
+              name="dateOfExpiry"
+              value={this.state.data.dateOfExpiry}
+              onChange={this.handleChange}
+            />
+          </div>
 
           <Link href="/steps/2">
             <a className="continue" onClick={this.handleSubmit}>Continue</a>

@@ -5,18 +5,17 @@ import Link from 'next/link'
 export default class extends Component {
   constructor(props) {
     super(props)
-    this.state = {
-      id: ''
-    }
   }
 
-  componentDidMount() {
-    axios.post(`http://172.17.160.49:3000/applicants/`, {
+  createId(e) {
+    // e.preventDefault()
+    axios.post(`http://localhost:8080/applicants/`, {
       step: '0'
     })
     .then(res => {
-      console.log(res.data)
-      
+      localStorage.setItem('id', `${res.data.id}`)
+      // this.setState({ id: res.data.id }) 
+      console.log(localStorage.id)
     })
     .catch(err => {
       console.log(err)
@@ -25,9 +24,11 @@ export default class extends Component {
 
   render() {
     return (
-      <h1>
-        Yeah
-      </h1>
+      <section className="container">
+        <Link href="/steps/1">
+          <a className="continue" onClick={this.createId}>Continue</a>
+        </Link>
+      </section>
     )
   }
 }

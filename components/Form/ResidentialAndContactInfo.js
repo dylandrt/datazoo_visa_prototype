@@ -1,35 +1,70 @@
-import React, { Component, Fragment } from 'react'
-import TextFieldGroup from '../Commons/TextFieldGroup'
 import Link from 'next/link'
-import Heading from '../Heading/Heading'
+import React, { Component } from 'react'
+import axios from 'axios'
+import Heading from '../components/Heading/Heading'
+import TextFieldGroup from '../components/Commons/TextFieldGroup'
 
 export default class ResidentialAndContactInfo extends Component {
-  constructor(props) {
-    super(props)
+  constructor() {
+    super()
     this.state = {
-      flatNo: '',
-      entranceNo: '',
-      buildingNo: '',
-      streetName: '',
-      complexName: '',
-      district: '',
-      province: '',
-      telephone: '',
-      email: ''
+      id: '',
+      step: '2'
+      data: {
+        flatNo: '',
+        entranceNo: '',
+        buildingNo: '',
+        streetName: '',
+        complexName: '',
+        district: '',
+        province: '',
+        telephone: '',
+        email: ''
+      }
     }
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  getUserInfo() {
+    axios.get(`http://localhost:8080/applicants/${localStorage.id}`)
+    .then(res => {
+      if (res.data.person.residentialAndContactInfo) {
+        this.setState({data: res.data.person.residentialAndContactInfo})
+      } else {
+        console.log('user has no data')
+      }
+    })
+    .catch(err => {
+      console.log(err)
+    })
+  }
+
+  componentDidMount() {
+    this.getUserInfo()
+  }
+
   handleChange(e) {
-    this.setState({ [e.target.name]: e.target.value })
+    console.log({ data: { ...this.state.data, [e.target.name]: e.target.value }})
+    this.setState({ data: { ...this.state.data, [e.target.name]: e.target.value }})
   }
 
   handleSubmit(e) {
-    console.log('submitted: ' + JSON.stringify(this.state));
-  }
+    const id = String(localStorage.id)
+    const step = this.state.step
+    const data = this.state.data
 
+    axios.post(`http://localhost:8080/applicants/`, {
+      id, step, data
+    })
+    .then(res => {
+      console.log(res.data)
+    })
+    .catch(err => {
+      console.log(err)
+    })
+  }
 
   render() {
     return (
