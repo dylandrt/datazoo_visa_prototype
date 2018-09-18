@@ -27,7 +27,7 @@ export default class extends Component {
       <section className="container">
         <div className="user-login form-page">
           <h1 className="heading">
-            Supplementary Form
+            Supplementary Visa Form
           </h1>
 
           <h2 className="subheading">

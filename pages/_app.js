@@ -4,6 +4,13 @@ import { PageTransition } from 'next-page-transitions'
 import Navigation from '../components/Navigation/Navigation' 
  
 export default class MyApp extends App {
+  // constructor(props) {
+  //   super(props)
+  //   this.state = {
+  //     id: ''
+  //   }
+  // }
+
   static async getInitialProps({ Component, router, ctx }) {
     let pageProps = {}
  
