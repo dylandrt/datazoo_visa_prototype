@@ -10,12 +10,12 @@ export default class NewZealandContacts extends Component {
     this.state = {
       id: '',
       step: '7',
-      data: {
+      data: [{
         nzContactName: '',
         nzContactAddress: '',
         nzContactTelephone: '',
         nzContactEmail: ''
-      }
+      }]
     }
 
     this.handleChange = this.handleChange.bind(this);
@@ -26,7 +26,8 @@ export default class NewZealandContacts extends Component {
     axios.get(`http://localhost:8080/applicants/${localStorage.id}`)
     .then(res => {
       if (res.data.person.nzContacts) {
-        this.setState({data: res.data.person.nzContacts})
+        console.log(res.data.person.nzContacts)
+        this.setState({data: [res.data.person.nzContacts]})
       } else {
         console.log('user has no data')
       }
@@ -42,14 +43,15 @@ export default class NewZealandContacts extends Component {
 
   handleChange(e) {
     // console.log({ data: { ...this.state.data, [e.target.name]: e.target.value }})
-    this.setState({ data: { ...this.state.data, [e.target.name]: e.target.value }})
+    this.setState({ data: { ...this.state.data[0], [e.target.name]: e.target.value }})
   }
 
   handleSubmit(e) {
+    e.preventDefault()
     const id = String(localStorage.id)
     const step = this.state.step
-    const data = this.state.data
-
+    const data = this.state.data[0]
+    console.log(this.state.data[0])
     axios.post(`http://localhost:8080/applicants/`, {
       id, step, data
     })
@@ -72,7 +74,7 @@ export default class NewZealandContacts extends Component {
             htmlFOR="nzContactName"
             name="nzContactName"
             id="nzContactName"
-            value={this.state.data.nzContactName}
+            value={this.state.data[0].nzContactName}
             handleChange={this.handleChange}
           />
 
@@ -81,7 +83,7 @@ export default class NewZealandContacts extends Component {
             htmlFOR="nzContactAddress"
             name="nzContactAddress"
             id="nzContactAddress"
-            value={this.state.data.nzContactAddress}
+            value={this.state.data[0].nzContactAddress}
             handleChange={this.handleChange}
           />
 
@@ -90,7 +92,7 @@ export default class NewZealandContacts extends Component {
             htmlFOR="nzContactTelephone"
             name="nzContactTelephone"
             id="nzContactTelephone"
-            value={this.state.data.nzContactTelephone}
+            value={this.state.data[0].nzContactTelephone}
             handleChange={this.handleChange}
           />
 
@@ -99,7 +101,7 @@ export default class NewZealandContacts extends Component {
             htmlFOR="nzContactEmail"
             name="nzContactEmail"
             id="nzContactEmail"
-            value={this.state.data.nzContactEmail}
+            value={this.state.data[0].nzContactEmail}
             handleChange={this.handleChange}
           />
 

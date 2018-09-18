@@ -10,15 +10,13 @@ export default class MilitaryHistory extends Component {
     this.state = {
       id: '',
       step: '4',
-      data: [
-        {
-          militaryRank: '',
-          militaryUnit: '',
-          militaryService: '',
-          militaryDateStart: '',
-          militaryDateEnd: ''
-        }
-      ]
+      data: [{
+        militaryRank: '',
+        militaryUnit: '',
+        militaryService: '',
+        militaryDateStart: '',
+        militaryDateEnd: ''
+      }]
     }
 
     this.handleChange = this.handleChange.bind(this)

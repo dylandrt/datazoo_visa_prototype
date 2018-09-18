@@ -10,13 +10,11 @@ export default class Relationships extends Component {
     this.state = {
       id: '',
       step: '5',
-      data: [
-        {
-          familyMemberName: '',
-          familyMemberRelationship: '',
-          familyMemberDateOfBirth: ''
-        }
-      ]
+      data: [{
+        familyMemberName: '',
+        familyMemberRelationship: '',
+        familyMemberDateOfBirth: ''
+      }]
     }
 
     this.handleChange = this.handleChange.bind(this);
@@ -48,7 +46,6 @@ export default class Relationships extends Component {
   }
 
   handleSubmit(e) {
-    e.preventDefault()
     const id = String(localStorage.id)
     const step = this.state.step
     const data = this.state.data

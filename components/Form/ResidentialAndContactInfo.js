@@ -9,7 +9,7 @@ export default class ResidentialAndContactInfo extends Component {
     super()
     this.state = {
       id: '',
-      step: '2'
+      step: '2',
       data: {
         flatNo: '',
         entranceNo: '',

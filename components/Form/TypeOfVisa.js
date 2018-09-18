@@ -75,7 +75,7 @@ export default class TypeOfVisa extends Component {
   }
 
   render() {
-    return (</section>
+    return (
       <section className="container">
         <div className="form-page form-page-six">
           <Heading title="Type of Visa" />

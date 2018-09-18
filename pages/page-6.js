@@ -59,11 +59,10 @@ export default class TypeOfVisa extends Component {
   }
 
   handleSubmit(e) {
-    e.preventDefault()
     const id = String(localStorage.id)
     const step = this.state.step
     const data = this.state.data
-    console.log(this.state.data)
+    
     axios.post(`http://localhost:8080/applicants/`, {
       id, step, data
     })
