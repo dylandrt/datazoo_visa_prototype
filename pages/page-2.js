@@ -14,6 +14,7 @@ export default class ResidentialAndContactInfo extends Component {
         flatNo: '',
         entranceNo: '',
         buildingNo: '',
+        streetNo: '',
         streetName: '',
         complexName: '',
         district: '',
@@ -28,10 +29,16 @@ export default class ResidentialAndContactInfo extends Component {
   }
 
   getUserInfo() {
-    axios.get(`http://localhost:8080/applicants/${localStorage.id}`)
+    axios.get(`http://172.17.160.49:3000/applicants/${localStorage.id}`)
     .then(res => {
       if (res.data.person.residentialInfo) {
-        this.setState({data: res.data.person.residentialInfo})
+        let data = res.data.person.residentialInfo
+        for (let property in data) {
+          if (data[property] == null || data[property] == undefined) {
+            data[property] = ''
+          }
+        }
+        this.setState({data: data})
       } else {
         console.log('user has no data')
       }
@@ -55,7 +62,7 @@ export default class ResidentialAndContactInfo extends Component {
     const step = this.state.step
     const data = this.state.data
 
-    axios.post(`http://localhost:8080/applicants/`, {
+    axios.post(`http://172.17.160.49:3000/applicants/`, {
       id, step, data
     })
     .then(res => {
@@ -96,6 +103,15 @@ export default class ResidentialAndContactInfo extends Component {
             name="buildingNo"
             id="buildingNo"
             value={this.state.data.buildingNo}
+            handleChange={this.handleChange}
+          />
+
+          <TextFieldGroup
+            label="Street number"
+            htmlFOR="streetNo"
+            name="streetNo"
+            id="streetNo"
+            value={this.state.data.streetNo}
             handleChange={this.handleChange}
           />
 

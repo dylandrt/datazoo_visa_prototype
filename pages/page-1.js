@@ -33,7 +33,7 @@ export default class PersonalInfo extends Component {
   }
 
   getUserInfo() {
-    axios.get(`http://localhost:8080/applicants/${localStorage.id}`)
+    axios.get(`http://172.17.160.49:3000/applicants/${localStorage.id}`)
     .then(res => {
       if (res.data.person.personalInfo) {
         this.setState({data: res.data.person.personalInfo})
@@ -60,7 +60,7 @@ export default class PersonalInfo extends Component {
     const step = this.state.step
     const data = this.state.data
 
-    axios.post(`http://localhost:8080/applicants/`, {
+    axios.post(`http://172.17.160.49:3000/applicants/`, {
       id, step, data
     })
     .then(res => {
@@ -96,7 +96,7 @@ export default class PersonalInfo extends Component {
           />
 
           <div className="form-field">
-            <label htmlFor="dateOfBirth">Start</label>
+            <label htmlFor="dateOfBirth">Date of birth</label>
             <input
               type="date"
               id="dateOfBirth"

@@ -23,11 +23,10 @@ export default class NewZealandContacts extends Component {
   }
 
   getUserInfo() {
-    axios.get(`http://localhost:8080/applicants/${localStorage.id}`)
+    axios.get(`http://172.17.160.49:3000/applicants/${localStorage.id}`)
     .then(res => {
-      if (res.data.person.nzContacts) {
-        console.log(res.data.person.nzContacts)
-        this.setState({data: [res.data.person.nzContacts]})
+      if (res.data.person.nzContacts[0]) {
+        this.setState({data: [res.data.person.nzContacts[0]]})
       } else {
         console.log('user has no data')
       }
@@ -42,17 +41,17 @@ export default class NewZealandContacts extends Component {
   }
 
   handleChange(e) {
-    // console.log({ data: { ...this.state.data, [e.target.name]: e.target.value }})
-    this.setState({ data: { ...this.state.data[0], [e.target.name]: e.target.value }})
+    // console.log({ data: [{ ...this.state.data[0], [e.target.name]: e.target.value }]})
+    this.setState({ data: [{ ...this.state.data[0], [e.target.name]: e.target.value }]})
   }
 
   handleSubmit(e) {
     e.preventDefault()
     const id = String(localStorage.id)
     const step = this.state.step
-    const data = this.state.data[0]
-    console.log(this.state.data[0])
-    axios.post(`http://localhost:8080/applicants/`, {
+    const data = this.state.data
+    
+    axios.post(`http://172.17.160.49:3000/applicants/`, {
       id, step, data
     })
     .then(res => {

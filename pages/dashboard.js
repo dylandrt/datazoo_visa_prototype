@@ -23,7 +23,7 @@ export default class extends Component {
   }
 
   componentDidMount() {
-    // axios.get(`http://172.17.160.49:3000/applicants`)
+    // axios.get(`http://172.17.160.49:3000/applicants/`)
     //   .then(res => {
     //     const persons = res.data.applicants
     //     this.setState({ persons })

@@ -12,7 +12,7 @@ export default class extends Component {
   }
   
   getUserInfo() {
-    axios.get(`http://localhost:8080/applicants/${localStorage.id}`)
+    axios.get(`http://172.17.160.49:3000/applicants/${localStorage.id}`)
     .then(res => {
       if (res.data.person) {
         this.setState({data: res.data.person})

@@ -36,10 +36,16 @@ export default class TypeOfVisa extends Component {
   }
 
   getUserInfo() {
-    axios.get(`http://localhost:8080/applicants/${localStorage.id}`)
+    axios.get(`http://172.17.160.49:3000/applicants/${localStorage.id}`)
     .then(res => {
       if (res.data.person.visaType) {
-        this.setState({data: res.data.person.visaType})
+        let data = res.data.person.visaType
+        for (let property in data) {
+          if (data[property] == null || data[property] == undefined) {
+            data[property] = ''
+          }
+        }
+        this.setState({ data: data })
       } else {
         console.log('user has no data')
       }
@@ -48,6 +54,7 @@ export default class TypeOfVisa extends Component {
       console.log(err)
     })
   }
+  
   
   componentDidMount() {
     this.getUserInfo()
@@ -63,7 +70,7 @@ export default class TypeOfVisa extends Component {
     const step = this.state.step
     const data = this.state.data
     
-    axios.post(`http://localhost:8080/applicants/`, {
+    axios.post(`http://172.17.160.49:3000/applicants/`, {
       id, step, data
     })
     .then(res => {
@@ -88,6 +95,7 @@ export default class TypeOfVisa extends Component {
                 name="visaType"
                 value="Tourism"
                 id="visaTourism"
+                onChange={this.handleChange}
                 defaultChecked={this.state.data.visaType == 'Tourism' ? true : false}
               />
               <span className="checkmark" />
@@ -102,6 +110,7 @@ export default class TypeOfVisa extends Component {
                 name="visaType"
                 value="Study"
                 id="visaStudy"
+                onChange={this.handleChange}
                 defaultChecked={this.state.data.visaType == 'Study' ? true : false}
               />
               <span className="checkmark" />

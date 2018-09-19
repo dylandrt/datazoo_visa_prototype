@@ -10,11 +10,13 @@ export default class Relationships extends Component {
     this.state = {
       id: '',
       step: '5',
-      data: [{
-        familyMemberName: '',
-        familyMemberRelationship: '',
-        familyMemberDateOfBirth: ''
-      }]
+      data: [
+        {
+          familyMemberName: '',
+          familyMemberRelationship: '',
+          familyMemberDateOfBirth: ''
+        }
+      ]
     }
 
     this.handleChange = this.handleChange.bind(this);
@@ -22,11 +24,10 @@ export default class Relationships extends Component {
   }
 
   getUserInfo() {
-    axios.get(`http://localhost:8080/applicants/${localStorage.id}`)
+    axios.get(`http://172.17.160.49:3000/applicants/${localStorage.id}`)
     .then(res => {
-      if (res.data.person.relationships) {
-        console.log(res.data.person.relationships)
-        this.setState({data: res.data.person.relationships})
+      if (res.data.person.relationships[0]) {
+        this.setState({data: [res.data.person.relationships[0]]})
       } else {
         console.log('user has no data')
       }
@@ -41,8 +42,8 @@ export default class Relationships extends Component {
   }
 
   handleChange(e) {
-    console.log({ data: { ...this.state.data, [e.target.name]: e.target.value }})
-    this.setState({ data: { ...this.state.data, [e.target.name]: e.target.value }})
+    // console.log({ data: [{ ...this.state.data[0], [e.target.name]: e.target.value }]})
+    this.setState({ data: [{ ...this.state.data[0], [e.target.name]: e.target.value }]})
   }
 
   handleSubmit(e) {
@@ -50,7 +51,7 @@ export default class Relationships extends Component {
     const step = this.state.step
     const data = this.state.data
 
-    axios.post(`http://localhost:8080/applicants/`, {
+    axios.post(`http://172.17.160.49:3000/applicants/`, {
       id, step, data
     })
     .then(res => {
@@ -77,7 +78,7 @@ export default class Relationships extends Component {
             htmlFOR="familyMemberName"
             name="familyMemberName"
             id="familyMemberName"
-            value={this.state.data.familyMemberName}
+            value={this.state.data[0].familyMemberName}
             handleChange={this.handleChange}
           />
 
@@ -86,7 +87,7 @@ export default class Relationships extends Component {
             htmlFOR="familyMemberRelationship"
             name="familyMemberRelationship"
             id="familyMemberRelationship"
-            value={this.state.data.familyMemberRelationship}
+            value={this.state.data[0].familyMemberRelationship}
             handleChange={this.handleChange}
           />
           
@@ -96,8 +97,8 @@ export default class Relationships extends Component {
               type="date"
               id="familyMemberDateOfBirth"
               min="1900-01-01" max="2018-12-31"
-              name="militaryDateStart"
-              value={this.state.data.familyMemberDateOfBirth}
+              name="familyMemberDateOfBirth"
+              value={this.state.data[0].familyMemberDateOfBirth}
               onChange={this.handleChange}
             />
           </div>

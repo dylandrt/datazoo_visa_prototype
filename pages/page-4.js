@@ -10,13 +10,15 @@ export default class MilitaryHistory extends Component {
     this.state = {
       id: '',
       step: '4',
-      data: [{
-        militaryRank: '',
-        militaryUnit: '',
-        militaryService: '',
-        militaryDateStart: '',
-        militaryDateEnd: ''
-      }]
+      data: [
+        {
+          militaryRank: '',
+          militaryUnit: '',
+          militaryService: '',
+          militaryDateStart: '',
+          militaryDateEnd: ''
+        }
+      ]
     }
 
     this.handleChange = this.handleChange.bind(this)
@@ -24,11 +26,11 @@ export default class MilitaryHistory extends Component {
   }
 
   getUserInfo() {
-    axios.get(`http://localhost:8080/applicants/${localStorage.id}`)
+    axios.get(`http://172.17.160.49:3000/applicants/${localStorage.id}`)
     .then(res => {
-      if (res.data.person.militaryService) {
-        console.log(res.data.person.militaryService)
-        this.setState({data: res.data.person.militaryService})
+      let data = res.data.person.militaryHistory[0]
+      if (data) {
+        this.setState({data: [data]})
       } else {
         console.log('user has no data')
       }
@@ -43,16 +45,17 @@ export default class MilitaryHistory extends Component {
   }
 
   handleChange(e) {
-    // console.log({ data: { ...this.state.data, [e.target.name]: e.target.value }})
-    this.setState({ data: { ...this.state.data, [e.target.name]: e.target.value }})
+    // console.log({ data: [{ ...this.state.data[0], [e.target.name]: e.target.value }]})
+    this.setState({ data: [{ ...this.state.data[0], [e.target.name]: e.target.value }]})
   }
 
   handleSubmit(e) {
+    e.preventDefault()
     const id = String(localStorage.id)
     const step = this.state.step
     const data = this.state.data
 
-    axios.post(`http://localhost:8080/applicants/`, {
+    axios.post(`http://172.17.160.49:3000/applicants/`, {
       id, step, data
     })
     .then(res => {
@@ -74,7 +77,7 @@ export default class MilitaryHistory extends Component {
             htmlFOR="militaryRank"
             name="militaryRank"
             id="militaryRank"
-            value={this.state.data.militaryRank}
+            value={this.state.data[0].militaryRank}
             handleChange={this.handleChange}
           />
 
@@ -83,7 +86,7 @@ export default class MilitaryHistory extends Component {
             htmlFOR="militaryUnit"
             name="militaryUnit"
             id="militaryUnit"
-            value={this.state.data.militaryUnit}
+            value={this.state.data[0].militaryUnit}
             handleChange={this.handleChange}
           />
 
@@ -92,7 +95,7 @@ export default class MilitaryHistory extends Component {
             htmlFOR="militaryService"
             name="militaryService"
             id="militaryService"
-            value={this.state.data.militaryService}
+            value={this.state.data[0].militaryService}
             handleChange={this.handleChange}
           />
 
@@ -103,7 +106,7 @@ export default class MilitaryHistory extends Component {
               id="militaryDateStart"
               min="1900-01-01" max="2018-12-31"
               name="militaryDateStart"
-              value={this.state.data.militaryDateStart}
+              value={this.state.data[0].militaryDateStart}
               onChange={this.handleChange}
             />
           </div>
@@ -115,7 +118,7 @@ export default class MilitaryHistory extends Component {
               id="militaryDateEnd"
               min="1900-01-01" max="2018-12-31"
               name="militaryDateEnd"
-              value={this.state.data.militaryDateEnd}
+              value={this.state.data[0].militaryDateEnd}
               onChange={this.handleChange}
             />
           </div>
