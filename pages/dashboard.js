@@ -18,6 +18,21 @@ export default class extends Component {
           watchlistAml: false,
           chinaPoliceDB: false
         }
+      },
+      {
+        _id: "0002",
+        personalInformation: {
+          fullName: "Yoh Linh",
+          age: "24",
+          gender: "Female",
+        },
+        status: "Incomplete",
+        verified: {
+          chineseNationalId: true,
+          chineseBankCard: false,
+          watchlistAml: true,
+          chinaPoliceDB: false
+        }
       }
     ]
   }
@@ -33,38 +48,37 @@ export default class extends Component {
 
   render() {
     return (
-      // <ul>
-      //   { this.state.persons.map(person => <li key={person._id}>{person._id}</li>)}
-      // </ul>
-      <section className="container">
-        <table>
-          <thead>
-            <tr>
-              <th>Full Name</th>
-              <th>Age</th>
-              <th>Gender</th>
-              <th>Status</th>
-              <th>Verified</th>
-            </tr>
-          </thead>
+      <section className="dashboard">
+        <div className="form-page">
+          <table>
+            <thead>
+              <tr>
+                <th>Full Name</th>
+                <th>Age</th>
+                <th>Gender</th>
+                <th>Status</th>
+                <th>Verified</th>
+              </tr>
+            </thead>
 
-          <tbody>
-            <tr>
-              { this.state.persons.map(person => <td key={person._id}>{person.personalInformation.fullName}</td>)}
-              { this.state.persons.map(person => <td key={person._id}>{person.personalInformation.age}</td>)}
-              { this.state.persons.map(person => <td key={person._id}>{person.personalInformation.gender}</td>)}
-              { this.state.persons.map(person => <td key={person._id}>{person.status}</td>)}
+            <tbody>
               { this.state.persons.map(person =>
-                <td key={person._id}>
-                  <span style={ person.verified.chineseNationalId ? {background:'green'} : {background:'red'} }>CNID </span>
-                  <span style={ person.verified.chineseBankCard ? {background:'green'} : {background:'red'} }>CBD </span>
-                  <span style={ person.verified.watchlistAml ? {background:'green'} : {background:'red'} }>WAML </span>
-                  <span style={ person.verified.chinaPoliceDB ? {background:'green'} : {background:'red'} }>CPDB</span>
-                </td>
+                <tr key={person._id}>
+                  <td>{person.personalInformation.fullName}</td>
+                  <td>{person.personalInformation.age}</td>
+                  <td>{person.personalInformation.gender}</td>
+                  <td>{person.status}</td>
+                  <td>
+                    <span className={ person.verified.chineseNationalId ? 'verified' : 'unverified' }>CNID </span>
+                    <span className={ person.verified.chineseBankCard ? 'verified' : 'unverified' }>CBD </span>
+                    <span className={ person.verified.watchlistAml ? 'verified' : 'unverified' }>WAML </span>
+                    <span className={ person.verified.chinaPoliceDB ? 'verified' : 'unverified' }>CPDB</span>
+                  </td>
+                </tr>
               )}
-            </tr>
           </tbody>
         </table>
+        </div>
       </section>
       
     )

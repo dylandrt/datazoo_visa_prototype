@@ -84,6 +84,7 @@ export default class WorkAndEducation extends Component {
           <Heading title="Work & Tertiary Education" />
     
           <TextFieldGroup
+            type="text"
             label="Occupation/job title"
             htmlFOR="occupation"
             name="occupation"
@@ -93,6 +94,7 @@ export default class WorkAndEducation extends Component {
           />
 
           <TextFieldGroup
+            type="text"
             label="Name of company/business"
             htmlFOR="companyName"
             name="companyName"
@@ -102,6 +104,7 @@ export default class WorkAndEducation extends Component {
           />
 
           <TextFieldGroup
+            type="text"
             label="Building name"
             htmlFOR="companyBuildingName"
             name="companyBuildingName"
@@ -111,15 +114,17 @@ export default class WorkAndEducation extends Component {
           />
 
           <TextFieldGroup
+            type="number"
             label="Street number"
             htmlFOR="companyStreetNo"
             name="companyStreetNo"
             id="companyStreetNo"
-            value={this.state.data.companyStreetNo}
+            value={`${this.state.data.companyStreetNo}`}
             handleChange={this.handleChange}
           />
 
           <TextFieldGroup
+            type="text"
             label="Street name"
             htmlFOR="companyStreetName"
             name="companyStreetName"
@@ -129,6 +134,7 @@ export default class WorkAndEducation extends Component {
           />
 
           <TextFieldGroup
+            type="text"
             label="District"
             htmlFOR="companyDistrict"
             name="companyDistrict"
@@ -138,6 +144,7 @@ export default class WorkAndEducation extends Component {
           />
 
           <TextFieldGroup
+            type="text"
             label="Province"
             htmlFOR="companyProvince"
             name="companyProvince"
@@ -147,6 +154,7 @@ export default class WorkAndEducation extends Component {
           />
 
           <TextFieldGroup
+            type="text"
             label="City"
             htmlFOR="companyCity"
             name="companyCity"
@@ -156,15 +164,17 @@ export default class WorkAndEducation extends Component {
           />
 
           <TextFieldGroup
+            type="number"
             label="Telephone"
             htmlFOR="companyTelephone"
             name="companyTelephone"
             id="companyTelephone"
-            value={this.state.data.companyTelephone}
+            value={`${this.state.data.companyTelephone}`}
             handleChange={this.handleChange}
           />
 
           <TextFieldGroup
+            type="email"
             label="Email"
             htmlFOR="companyEmail"
             name="companyEmail"
@@ -176,6 +186,7 @@ export default class WorkAndEducation extends Component {
           <h3 className="subheading">List your tertiary education</h3>
 
           <TextFieldGroup
+            type="text"
             label="Name of institution"
             htmlFOR="institutionName"
             name="institutionName"
@@ -185,6 +196,7 @@ export default class WorkAndEducation extends Component {
           />
 
           <TextFieldGroup
+            type="text"
             label="Programme of study"
             htmlFOR="studyProgramme"
             name="studyProgramme"

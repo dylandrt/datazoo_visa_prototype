@@ -74,6 +74,7 @@ export default class Relationships extends Component {
           </h3>
           
           <TextFieldGroup
+            type="text"
             label="Name"
             htmlFOR="familyMemberName"
             name="familyMemberName"
@@ -83,6 +84,7 @@ export default class Relationships extends Component {
           />
 
           <TextFieldGroup
+            type="text"
             label="Relationship"
             htmlFOR="familyMemberRelationship"
             name="familyMemberRelationship"

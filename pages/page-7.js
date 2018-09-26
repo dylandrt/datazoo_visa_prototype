@@ -46,7 +46,6 @@ export default class NewZealandContacts extends Component {
   }
 
   handleSubmit(e) {
-    e.preventDefault()
     const id = String(localStorage.id)
     const step = this.state.step
     const data = this.state.data
@@ -69,6 +68,7 @@ export default class NewZealandContacts extends Component {
           <Heading title="New Zealand Contacts" />
         
           <TextFieldGroup
+            type="text"
             label="Name"
             htmlFOR="nzContactName"
             name="nzContactName"
@@ -78,6 +78,7 @@ export default class NewZealandContacts extends Component {
           />
 
           <TextFieldGroup
+            type="text"
             label="Address"
             htmlFOR="nzContactAddress"
             name="nzContactAddress"
@@ -87,15 +88,17 @@ export default class NewZealandContacts extends Component {
           />
 
           <TextFieldGroup
+            type="number"
             label="Telephone"
             htmlFOR="nzContactTelephone"
             name="nzContactTelephone"
             id="nzContactTelephone"
-            value={this.state.data[0].nzContactTelephone}
+            value={`${this.state.data[0].nzContactTelephone}`}
             handleChange={this.handleChange}
           />
 
           <TextFieldGroup
+            type="email"
             label="Email"
             htmlFOR="nzContactEmail"
             name="nzContactEmail"

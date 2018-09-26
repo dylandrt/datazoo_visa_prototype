@@ -80,42 +80,47 @@ export default class ResidentialAndContactInfo extends Component {
           <Heading title="Residential Address & Contact Information" />
     
           <TextFieldGroup
+            type="number"
             label="Flat number"
             htmlFOR="flatNo"
             name="flatNo"
             id="flatNo"
-            value={this.state.data.flatNo}
+            value={`${this.state.data.flatNo}`}
             handleChange={this.handleChange}
           />
 
           <TextFieldGroup
+            type="number"
             label="Entrance number"
             htmlFOR="entranceNo"
             name="entranceNo"
             id="entranceNo"
-            value={this.state.data.entranceNo}
+            value={`${this.state.data.entranceNo}`}
             handleChange={this.handleChange}
           />
 
           <TextFieldGroup
+            type="number"
             label="Building number"
             htmlFOR="buildingNo"
             name="buildingNo"
             id="buildingNo"
-            value={this.state.data.buildingNo}
+            value={`${this.state.data.buildingNo}`}
             handleChange={this.handleChange}
           />
 
           <TextFieldGroup
+            type="number"
             label="Street number"
             htmlFOR="streetNo"
             name="streetNo"
             id="streetNo"
-            value={this.state.data.streetNo}
+            value={`${this.state.data.streetNo}`}
             handleChange={this.handleChange}
           />
 
           <TextFieldGroup
+            type="text"
             label="Street name"
             htmlFOR="streetName"
             name="streetName"
@@ -125,6 +130,7 @@ export default class ResidentialAndContactInfo extends Component {
           />
 
           <TextFieldGroup
+            type="text"
             label="Complex name"
             htmlFOR="complexName"
             name="complexName"
@@ -134,6 +140,7 @@ export default class ResidentialAndContactInfo extends Component {
           />
 
           <TextFieldGroup
+            type="text"
             label="District"
             htmlFOR="district"
             name="district"
@@ -143,6 +150,7 @@ export default class ResidentialAndContactInfo extends Component {
           />
 
           <TextFieldGroup
+            type="text"
             label="Province"
             htmlFOR="province"
             name="province"
@@ -152,11 +160,12 @@ export default class ResidentialAndContactInfo extends Component {
           />
 
           <TextFieldGroup
+            type="number"
             label="Telephone"
             htmlFOR="telephone"
             name="telephone"
             id="telephone"
-            value={this.state.data.telephone}
+            value={`${this.state.data.telephone}`}
             handleChange={this.handleChange}
           />
 

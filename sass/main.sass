@@ -90,6 +90,30 @@ section.dashboard
   margin-top: 106px
   font-family: 'Roboto', sans-serif
 
+  table
+    border-collapse: collapse;
+    width: 100%;
+    
+    thead th, tbody td
+      border: 1px solid #ddd
+      padding: 8px
+
+    tbody tr:nth-child(odd)
+      background-color: #fafafa
+    tbody tr:nth-child(even)
+      background-color: #f0f0f0
+
+    tbody tr:hover
+      background-color: #ddd
+
+
+    thead th
+      padding-top: 12px
+      padding-bottom: 12px
+      text-align: left
+      background-color: #77c159
+      color: white
+
 .user-login
   position: relative
   background-color: #fff
@@ -237,7 +261,7 @@ a.button
       color: rgba(0,0,0,0.87)
       font-weight: 500
       
-    input[type='text'], input[type='email'], input[type='date']
+    input[type='text'], input[type='number'], input[type='email'], input[type='date']
       font-size: 16px
       border-radius: 10px
       border: 1px solid #484dad

@@ -17,9 +17,8 @@ const TextFieldGroup = ({
     <div className="form-field">
       <label htmlFor={htmlFOR}>{label}</label>
       <input
-        type={text}
-        id={id}
         type={type}
+        id={id}
         placeholder={placeholder}
         name={name}
         value={value}
@@ -42,8 +41,5 @@ TextFieldGroup.propTypes = {
   label: PropTypes.string.isRequired
 }
 
-TextFieldGroup.defaultProps = {
-  type: 'text'
-}
 
 export default TextFieldGroup

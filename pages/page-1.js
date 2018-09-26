@@ -56,6 +56,7 @@ export default class PersonalInfo extends Component {
   }
 
   handleSubmit(e) {
+    e.preventDefault()
     const id = String(localStorage.id)
     const step = this.state.step
     const data = this.state.data
@@ -79,6 +80,7 @@ export default class PersonalInfo extends Component {
         
           <TextFieldGroup
             name="familyName"
+            type="text"
             label="Family name"
             id="familyName"
             htmlFOR="familyName"
@@ -88,6 +90,7 @@ export default class PersonalInfo extends Component {
 
           <TextFieldGroup
             name="firstName"
+            type="text"
             label="First name"
             id="firstName"
             htmlFOR="firstName"
@@ -138,6 +141,7 @@ export default class PersonalInfo extends Component {
 
           <TextFieldGroup
             name="otherNames"
+            type="text"
             label="Other names"
             id="otherNames"
             htmlFOR="otherNames"
@@ -147,6 +151,7 @@ export default class PersonalInfo extends Component {
 
           <TextFieldGroup
             label="Citizenship"
+            type="text"
             htmlFOR="citizenship"
             name="citizenship"
             id="citizenship"
@@ -156,6 +161,7 @@ export default class PersonalInfo extends Component {
 
           <TextFieldGroup
             label="Place of birth"
+            type="text"
             htmlFOR="placeOfBirth"
             name="placeOfBirth"
             id="placeOfBirth"
@@ -165,6 +171,7 @@ export default class PersonalInfo extends Component {
 
           <TextFieldGroup
             label="Country of birth"
+            type="text"
             htmlFOR="countryOfBirth"
             name="countryOfBirth"
             id="countryOfBirth"
@@ -174,6 +181,7 @@ export default class PersonalInfo extends Component {
 
           <TextFieldGroup
             label="Chinese Commercial Code"
+            type="number"
             htmlFOR="chineseCommercialCode"
             name="chineseCommercialCode"
             id="chineseCommercialCode"
@@ -182,6 +190,7 @@ export default class PersonalInfo extends Component {
           />
 
           <TextFieldGroup
+            type="number"
             label="Chinese National ID"
             htmlFOR="chineseNationalId"
             name="chineseNationalId"
@@ -191,6 +200,7 @@ export default class PersonalInfo extends Component {
           />
 
           <TextFieldGroup
+            type="number"
             label="Chinese Bank Card Number"
             htmlFOR="chineseCardNo"
             name="chineseCardNo"
@@ -200,6 +210,7 @@ export default class PersonalInfo extends Component {
           />
 
           <TextFieldGroup
+            type="number"
             label="Passport number"
             htmlFOR="passportNo"
             name="passportNo"

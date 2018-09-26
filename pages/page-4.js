@@ -50,7 +50,6 @@ export default class MilitaryHistory extends Component {
   }
 
   handleSubmit(e) {
-    e.preventDefault()
     const id = String(localStorage.id)
     const step = this.state.step
     const data = this.state.data
@@ -73,6 +72,7 @@ export default class MilitaryHistory extends Component {
           <Heading title="Military History" />
 
           <TextFieldGroup
+            type="text"
             label="Rank"
             htmlFOR="militaryRank"
             name="militaryRank"
@@ -82,6 +82,7 @@ export default class MilitaryHistory extends Component {
           />
 
           <TextFieldGroup
+            type="text"
             label="Unit"
             htmlFOR="militaryUnit"
             name="militaryUnit"
@@ -91,6 +92,7 @@ export default class MilitaryHistory extends Component {
           />
 
           <TextFieldGroup
+            type="text"
             label="Service"
             htmlFOR="militaryService"
             name="militaryService"

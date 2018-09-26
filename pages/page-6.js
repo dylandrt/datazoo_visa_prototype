@@ -38,6 +38,7 @@ export default class TypeOfVisa extends Component {
   getUserInfo() {
     axios.get(`http://172.17.160.49:3000/applicants/${localStorage.id}`)
     .then(res => {
+      console.log(res.data.person.visaType)
       if (res.data.person.visaType) {
         let data = res.data.person.visaType
         for (let property in data) {
@@ -69,7 +70,6 @@ export default class TypeOfVisa extends Component {
     const id = String(localStorage.id)
     const step = this.state.step
     const data = this.state.data
-    
     axios.post(`http://172.17.160.49:3000/applicants/`, {
       id, step, data
     })
@@ -193,6 +193,7 @@ export default class TypeOfVisa extends Component {
           </div>
 
           <TextFieldGroup
+            type="text"
             label="Enter other here:"
             htmlFOR="visaOtherInput"
             name="visaOtherInput"
@@ -232,6 +233,7 @@ export default class TypeOfVisa extends Component {
             </h3>
 
             <TextFieldGroup
+              type="text"
               label="Name of person/organisation you are visiting or conference you are attending"
               htmlFOR="visaBusinessName"
               name="visaBusinessName"
@@ -241,6 +243,7 @@ export default class TypeOfVisa extends Component {
             />
 
             <TextFieldGroup
+              type="text"
               label="Address"
               htmlFOR="visaBusinessAddress"
               name="visaBusinessAddress"
@@ -250,15 +253,17 @@ export default class TypeOfVisa extends Component {
             />
 
             <TextFieldGroup
+              type="number" 
               label="Phone"
               htmlFOR="visaBusinessTelephone"
               name="visaBusinessTelephone"
               id="visaBusinessTelephone"
-              value={this.state.data.visaBusinessTelephone}
+              value={`${this.state.data.visaBusinessTelephone}`}
               handleChange={this.handleChange}
             />
 
             <TextFieldGroup
+              type="email"
               label="Email"
               htmlFOR="visaBusinessEmail"
               name="visaBusinessEmail"
@@ -266,8 +271,6 @@ export default class TypeOfVisa extends Component {
               value={this.state.data.visaBusinessEmail}
               handleChange={this.handleChange}
             />
-
-            {/* Here */}
           </div>
 
           <div className="visa-work">
@@ -277,6 +280,7 @@ export default class TypeOfVisa extends Component {
             </h3>
 
             <TextFieldGroup
+              type="text"
               label="Name of company/business"
               htmlFOR="visaWorkName"
               name="visaWorkName"
@@ -286,6 +290,7 @@ export default class TypeOfVisa extends Component {
             />
 
             <TextFieldGroup
+              type="text"
               label="Address"
               htmlFOR="visaWorkAddress"
               name="visaWorkAddress"
@@ -295,15 +300,17 @@ export default class TypeOfVisa extends Component {
             />
 
             <TextFieldGroup
+              type="number"
               label="Telephone"
               htmlFOR="visaWorkTelephone"
               name="visaWorkTelephone"
               id="visaWorkTelephone"
-              value={this.state.data.visaWorkTelephone}
+              value={`${this.state.data.visaWorkTelephone}`}
               handleChange={this.handleChange}
             />
 
             <TextFieldGroup
+              type="email"
               label="Email"
               htmlFOR="visaWorkEmail"
               name="visaWorkEmail"
@@ -320,6 +327,7 @@ export default class TypeOfVisa extends Component {
             </h3>
 
             <TextFieldGroup
+              type="text"
               label="Name of institution"
               htmlFOR="visaStudyInstitution"
               name="visaStudyInstitution"
@@ -329,6 +337,7 @@ export default class TypeOfVisa extends Component {
             />
 
             <TextFieldGroup
+              type="text"
               label="Intended programme of study"
               htmlFOR="visaStudyProgramme"
               name="visaStudyProgramme"
@@ -338,6 +347,7 @@ export default class TypeOfVisa extends Component {
             />
 
             <TextFieldGroup
+              type="text"
               label="Area of study (for postgraduate/Masters/PhD students please specify thesis topic)"
               htmlFOR="visaStudyArea"
               name="visaStudyArea"
