@@ -91,12 +91,31 @@ section.dashboard
   font-family: 'Roboto', sans-serif
 
   table
-    border-collapse: collapse;
-    width: 100%;
+    margin-top: 32px
+    border-collapse: collapse
+    width: 100%
+    color: #666
     
     thead th, tbody td
       border: 1px solid #ddd
       padding: 8px
+    
+    tbody td .verified
+      font-weight: 700
+      margin: 2px
+      background-color: green
+      padding: 3px
+      border-radius: 3px
+      color: #fff
+
+    
+    tbody td .unverified
+      font-weight: 700
+      margin: 2px
+      background-color: red
+      padding: 3px
+      border-radius: 3px
+      color: #fff
 
     tbody tr:nth-child(odd)
       background-color: #fafafa
@@ -205,9 +224,9 @@ a.button
   
   input, button, textarea, select, a
     outline: none
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
+    -webkit-appearance: none
+    -moz-appearance: none
+    appearance: none
     
   a.continue
     border-radius: 3px
@@ -261,7 +280,7 @@ a.button
       color: rgba(0,0,0,0.87)
       font-weight: 500
       
-    input[type='text'], input[type='number'], input[type='email'], input[type='date']
+    input[type='text'], input[type='number'], input[type='email'], input[type='date'], input[type='password']
       font-size: 16px
       border-radius: 10px
       border: 1px solid #484dad

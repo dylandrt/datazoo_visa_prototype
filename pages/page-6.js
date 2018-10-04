@@ -36,7 +36,7 @@ export default class TypeOfVisa extends Component {
   }
 
   getUserInfo() {
-    axios.get(`http://172.17.160.49:3000/applicants/${localStorage.id}`)
+    axios.get(`http://localhost:3001/applicants/${localStorage.id}`)
     .then(res => {
       console.log(res.data.person.visaType)
       if (res.data.person.visaType) {
@@ -70,7 +70,7 @@ export default class TypeOfVisa extends Component {
     const id = String(localStorage.id)
     const step = this.state.step
     const data = this.state.data
-    axios.post(`http://172.17.160.49:3000/applicants/`, {
+    axios.post(`http://localhost:3001/applicants/`, {
       id, step, data
     })
     .then(res => {

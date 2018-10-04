@@ -8,7 +8,7 @@ export default class extends Component {
   }
 
   createId(e) {
-    axios.post(`http://172.17.160.49:3000/applicants/`, {
+    axios.post(`http://localhost:3001/applicants/`, {
       step: '0'
     })
     .then(res => {

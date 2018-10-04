@@ -10,6 +10,7 @@ export default class MyDocument extends Document {
           <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0" />
           <title>DataZoo</title>
+          <link rel="icon" href="../../static/favicon.png" sizes="32x32" />
           <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
           <link rel="stylesheet" href="/_next/static/style.css" />
         </Head>

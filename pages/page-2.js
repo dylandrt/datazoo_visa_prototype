@@ -29,7 +29,7 @@ export default class ResidentialAndContactInfo extends Component {
   }
 
   getUserInfo() {
-    axios.get(`http://172.17.160.49:3000/applicants/${localStorage.id}`)
+    axios.get(`http://localhost:3001/applicants/${localStorage.id}`)
     .then(res => {
       if (res.data.person.residentialInfo) {
         let data = res.data.person.residentialInfo
@@ -62,7 +62,7 @@ export default class ResidentialAndContactInfo extends Component {
     const step = this.state.step
     const data = this.state.data
 
-    axios.post(`http://172.17.160.49:3000/applicants/`, {
+    axios.post(`http://localhost:3001/applicants/`, {
       id, step, data
     })
     .then(res => {

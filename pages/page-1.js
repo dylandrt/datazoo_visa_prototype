@@ -33,7 +33,7 @@ export default class PersonalInfo extends Component {
   }
 
   getUserInfo() {
-    axios.get(`http://172.17.160.49:3000/applicants/${localStorage.id}`)
+    axios.get(`http://localhost:3001/applicants/${localStorage.id}`)
     .then(res => {
       if (res.data.person.personalInfo) {
         this.setState({data: res.data.person.personalInfo})
@@ -56,12 +56,11 @@ export default class PersonalInfo extends Component {
   }
 
   handleSubmit(e) {
-    e.preventDefault()
     const id = String(localStorage.id)
     const step = this.state.step
     const data = this.state.data
 
-    axios.post(`http://172.17.160.49:3000/applicants/`, {
+    axios.post(`http://localhost:3001/applicants/`, {
       id, step, data
     })
     .then(res => {

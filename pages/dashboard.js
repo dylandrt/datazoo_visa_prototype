@@ -11,7 +11,7 @@ export default class extends Component {
           age: "34",
           gender: "Male",
         },
-        status: "Incomplete",
+        status: "INCOMPLETE",
         verified: {
           chineseNationalId: false,
           chineseBankCard: false,
@@ -26,7 +26,7 @@ export default class extends Component {
           age: "24",
           gender: "Female",
         },
-        status: "Incomplete",
+        status: "INCOMPLETE",
         verified: {
           chineseNationalId: true,
           chineseBankCard: false,
@@ -38,7 +38,7 @@ export default class extends Component {
   }
 
   componentDidMount() {
-    // axios.get(`http://172.17.160.49:3000/applicants/`)
+    // axios.get(`http://localhost:3001/applicants/`)
     //   .then(res => {
     //     const persons = res.data.applicants
     //     this.setState({ persons })
@@ -50,6 +50,9 @@ export default class extends Component {
     return (
       <section className="dashboard">
         <div className="form-page">
+        <h1 className="heading">
+          List of Applicants
+        </h1>
           <table>
             <thead>
               <tr>
@@ -69,9 +72,9 @@ export default class extends Component {
                   <td>{person.personalInformation.gender}</td>
                   <td>{person.status}</td>
                   <td>
-                    <span className={ person.verified.chineseNationalId ? 'verified' : 'unverified' }>CNID </span>
-                    <span className={ person.verified.chineseBankCard ? 'verified' : 'unverified' }>CBD </span>
-                    <span className={ person.verified.watchlistAml ? 'verified' : 'unverified' }>WAML </span>
+                    <span className={ person.verified.chineseNationalId ? 'verified' : 'unverified' }>CNID</span>
+                    <span className={ person.verified.chineseBankCard ? 'verified' : 'unverified' }>CBD</span>
+                    <span className={ person.verified.watchlistAml ? 'verified' : 'unverified' }>WAML</span>
                     <span className={ person.verified.chinaPoliceDB ? 'verified' : 'unverified' }>CPDB</span>
                   </td>
                 </tr>
