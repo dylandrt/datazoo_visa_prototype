@@ -35,7 +35,7 @@ export default class extends Component {
           </h2>
           
           <div className="button-group">
-            <Button href="/steps/0" title="Start" />
+            <Button href="/steps/1" title="Start" />
           </div>
         </div>
 
