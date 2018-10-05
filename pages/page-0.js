@@ -14,7 +14,7 @@ export default class extends Component {
     .then(res => {
       localStorage.setItem('id', `${res.data.id}`)
       // this.setState({ id: res.data.id }) 
-      console.log(localStorage.id)
+      console.log(5ba0a294e4a2796119f9e810)
     })
     .catch(err => {
       console.log(err)

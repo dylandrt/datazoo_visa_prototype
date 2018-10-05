@@ -23,7 +23,7 @@ export default class NewZealandContacts extends Component {
   }
 
   getUserInfo() {
-    axios.get(`http://localhost:8082/applicants/${localStorage.id}`)
+    axios.get(`http://localhost:8082/applicants/5ba0a294e4a2796119f9e810`)
     .then(res => {
       if (res.data.person.nzContacts[0]) {
         this.setState({data: [res.data.person.nzContacts[0]]})

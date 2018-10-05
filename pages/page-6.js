@@ -36,7 +36,7 @@ export default class TypeOfVisa extends Component {
   }
 
   getUserInfo() {
-    axios.get(`http://localhost:8082/applicants/${localStorage.id}`)
+    axios.get(`http://localhost:8082/applicants/5ba0a294e4a2796119f9e810`)
     .then(res => {
       console.log(res.data.person.visaType)
       if (res.data.person.visaType) {

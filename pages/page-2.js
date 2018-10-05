@@ -30,7 +30,7 @@ export default class ResidentialAndContactInfo extends Component {
   }
 
   getUserInfo() {
-    axios.get(`http://localhost:8082/applicants/${localStorage.id}`)
+    axios.get(`http://localhost:8082/applicants/5ba0a294e4a2796119f9e810`)
     .then(res => {
       if (res.data.person.residentialInfo) {
         let data = res.data.person.residentialInfo
