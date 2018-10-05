@@ -24,7 +24,7 @@ export default class Relationships extends Component {
   }
 
   getUserInfo() {
-    axios.get(`http://104.248.54.56:8082/applicants/${localStorage.id}`)
+    axios.get(`http://localhost:8082/applicants/${localStorage.id}`)
     .then(res => {
       if (res.data.person.relationships[0]) {
         this.setState({data: [res.data.person.relationships[0]]})
@@ -51,7 +51,7 @@ export default class Relationships extends Component {
     const step = this.state.step
     const data = this.state.data
 
-    axios.post(`http://104.248.54.56:8082/applicants/`, {
+    axios.post(`http://localhost:8082/applicants/`, {
       id, step, data
     })
     .then(res => {

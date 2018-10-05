@@ -32,35 +32,35 @@ export default class extends Component {
           </Link>
 
           <Link href="/dashboard">
-            <a className="navBox--link">Dashboard</a>
+            <a className="navBox--link" onClick={this.handleNavClick}>Dashboard</a>
           </Link>
 
           <Link href="/steps/1">
-            <a className="navBox--link">Step 1</a>
+            <a className="navBox--link" onClick={this.handleNavClick}>Step 1</a>
           </Link>
 
           <Link href="/steps/2">
-            <a className="navBox--link">Step 2</a>
+            <a className="navBox--link" onClick={this.handleNavClick}>Step 2</a>
           </Link>
 
           <Link href="/steps/3">
-            <a className="navBox--link">Step 3</a>
+            <a className="navBox--link" onClick={this.handleNavClick}>Step 3</a>
           </Link>
 
           <Link href="/steps/4">
-            <a className="navBox--link">Step 4</a>
+            <a className="navBox--link" onClick={this.handleNavClick}>Step 4</a>
           </Link>
 
           <Link href="/steps/5">
-            <a className="navBox--link">Step 5</a>
+            <a className="navBox--link" onClick={this.handleNavClick}>Step 5</a>
           </Link>
 
           <Link href="/steps/6">
-            <a className="navBox--link">Step 6</a>
+            <a className="navBox--link" onClick={this.handleNavClick}>Step 6</a>
           </Link>
 
           <Link href="/steps/7">
-            <a className="navBox--link">Step 7</a>
+            <a className="navBox--link" onClick={this.handleNavClick}>Step 7</a>
           </Link>
         </div>
       </nav>
