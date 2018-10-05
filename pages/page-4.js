@@ -26,7 +26,7 @@ export default class MilitaryHistory extends Component {
   }
 
   getUserInfo() {
-    axios.get(`http://localhost:3001/applicants/${localStorage.id}`)
+    axios.get(`http://localhost:8082/applicants/${localStorage.id}`)
     .then(res => {
       let data = res.data.person.militaryHistory[0]
       if (data) {
@@ -54,7 +54,7 @@ export default class MilitaryHistory extends Component {
     const step = this.state.step
     const data = this.state.data
 
-    axios.post(`http://localhost:3001/applicants/`, {
+    axios.post(`http://localhost:8082/applicants/`, {
       id, step, data
     })
     .then(res => {

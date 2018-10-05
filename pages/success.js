@@ -94,55 +94,20 @@ export default class NewZealandContacts extends Component {
   }
 
   getUserInfo() {
-    axios.get(`http://172.17.160.49:3000/applicants/${localStorage.id}`)
-    .then(res => {
-      if (res.data.person) {
-        let data = res.data.person
-        this.setState({data})
-        console.log(this.state.data)
-      } else {
-        console.log('user has no data')
-      }
-    })
-    .catch(err => {
-      console.log(err)
-    })
   }
   
   componentDidMount() {
-    this.getUserInfo()
   }
 
   render() {
-
-    const personalInfo = (value) => {
-      if (this.state.data.personalInfo[value]) {
-        return this.state.data.personalInfo[value]
-      } else {
-        return 'NO VALUE'
-      }
-    }
 
     return (
       <section className="container">
         <div className="form-page">
           <Heading title="Success" />
-          <table>
-            <tbody>
-              <tr>
-                <th>Full Name</th>
-                <td>{personalInfo('fullName')}</td>
-              </tr>
-              <tr>
-                <th>Other Names</th>
-                <td>{personalInfo('otherNames')}</td>
-              </tr>
-               <tr>
-                 <td>Date of Birth</td>
-                 <td>{personalInfo('dateOfBirth')}</td>
-               </tr>
-            </tbody>
-          </table>
+          <h2 className="subheading">
+            To be completed
+          </h2>
         </div>
       </section>
     )

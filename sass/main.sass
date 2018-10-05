@@ -99,7 +99,17 @@ section.dashboard
     thead th, tbody td
       border: 1px solid #ddd
       padding: 8px
-    
+
+    tbody td span.status
+      color: #fff
+      padding: 3px
+      border-radius: 3px
+      text-transform: uppercase
+      &__complete
+        background-color: #77c159
+      &__incomplete
+        background-color: #ce0101
+
     tbody td .verified
       font-weight: 700
       margin: 2px

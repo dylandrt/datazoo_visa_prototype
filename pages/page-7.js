@@ -23,7 +23,7 @@ export default class NewZealandContacts extends Component {
   }
 
   getUserInfo() {
-    axios.get(`http://localhost:3001/applicants/${localStorage.id}`)
+    axios.get(`http://localhost:8082/applicants/${localStorage.id}`)
     .then(res => {
       if (res.data.person.nzContacts[0]) {
         this.setState({data: [res.data.person.nzContacts[0]]})
@@ -50,7 +50,7 @@ export default class NewZealandContacts extends Component {
     const step = this.state.step
     const data = this.state.data
     
-    axios.post(`http://localhost:3001/applicants/`, {
+    axios.post(`http://localhost:8082/applicants/`, {
       id, step, data
     })
     .then(res => {

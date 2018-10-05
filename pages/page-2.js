@@ -18,6 +18,7 @@ export default class ResidentialAndContactInfo extends Component {
         streetName: '',
         complexName: '',
         district: '',
+        city: '',
         province: '',
         telephone: '',
         email: ''
@@ -29,7 +30,7 @@ export default class ResidentialAndContactInfo extends Component {
   }
 
   getUserInfo() {
-    axios.get(`http://localhost:3001/applicants/${localStorage.id}`)
+    axios.get(`http://localhost:8082/applicants/${localStorage.id}`)
     .then(res => {
       if (res.data.person.residentialInfo) {
         let data = res.data.person.residentialInfo
@@ -62,7 +63,7 @@ export default class ResidentialAndContactInfo extends Component {
     const step = this.state.step
     const data = this.state.data
 
-    axios.post(`http://localhost:3001/applicants/`, {
+    axios.post(`http://localhost:8082/applicants/`, {
       id, step, data
     })
     .then(res => {
@@ -146,6 +147,16 @@ export default class ResidentialAndContactInfo extends Component {
             name="district"
             id="district"
             value={this.state.data.district}
+            handleChange={this.handleChange}
+          />
+
+          <TextFieldGroup
+            type="text"
+            label="City"
+            htmlFOR="city"
+            name="city"
+            id="city"
+            value={this.state.data.city}
             handleChange={this.handleChange}
           />
 

@@ -5,10 +5,6 @@ export default class extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      referenceLogin: '',
-      username: '',
-      password: '',
-      loggedIn: null
     }
 
     this.handleChange = this.handleChange.bind(this)
@@ -65,7 +61,7 @@ export default class extends Component {
           </div>
 
           <div className="button-group">
-            <Button href={this.state.loggedIn ? '/dashboard' : '/'} title="Login" onClick={this.handleSubmit} />
+            <Button href="/dashboard" title="Login" />
           </div>
         </div>
       </section>
