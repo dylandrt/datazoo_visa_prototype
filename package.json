@@ -1,9 +1,9 @@
 {
   "name": "datazoo-forms",
   "scripts": {
-    "dev": "node server.js",
+    "dev": "node visa.js",
     "build": "next build",
-    "start": "NODE_ENV=production node server.js"
+    "start": "NODE_ENV=production node visa.js"
   },
   "dependencies": {
     "@zeit/next-sass": "^0.2.0",
