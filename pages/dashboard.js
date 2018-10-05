@@ -20,7 +20,7 @@ export default class extends Component {
   }
 
   getUserInfo() {
-    axios.get(`http://localhost:8082/applicants/`)
+    axios.get(`http://104.248.54.56:8082/applicants/`)
     .then(res => {
       const persons = res.data.applicants
       this.setState({ persons })
