@@ -33,7 +33,7 @@ export default class PersonalInfo extends Component {
   }
 
   getUserInfo() {
-    axios.get(`http://localhost:8082/applicants/${5ba0a294e4a2796119f9e810}`)
+    axios.get(`http://localhost:8082/applicants/5ba0a294e4a2796119f9e810`)
     .then(res => {
       if (res.data.person.personalInfo) {
         this.setState({data: res.data.person.personalInfo})
