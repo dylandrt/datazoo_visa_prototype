@@ -33,7 +33,7 @@ export default class PersonalInfo extends Component {
   }
 
   getUserInfo() {
-    axios.get(`http://localhost:8082/applicants/5ba0a294e4a2796119f9e810`)
+    axios.get(`http://159.89.194.187:8082/applicants/5ba0a294e4a2796119f9e810`)
     .then(res => {
       if (res.data.person.personalInfo) {
         this.setState({data: res.data.person.personalInfo})
@@ -60,7 +60,7 @@ export default class PersonalInfo extends Component {
     const step = this.state.step
     const data = this.state.data
 
-    axios.post(`http://localhost:8082/applicants/`, {
+    axios.post(`http://159.89.194.187:8082/applicants/`, {
       id, step, data
     })
     .then(res => {

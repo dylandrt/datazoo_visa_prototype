@@ -22,6 +22,6 @@ app.prepare()
 
     server.listen(port, (err) => {
       if (err) throw err
-      console.log(`> Ready on http://localhost:${port}`)
+      console.log(`> Ready on http://159.89.194.187:${port}`)
     })
   })
